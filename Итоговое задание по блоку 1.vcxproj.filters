@@ -15,27 +15,24 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="..\..\Модуль 8\ДЗ Модуль 8\ДЗ Модуль 8\Array.cpp">
+    <ClCompile Include="Array.cpp">
       <Filter>Исходные файлы</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\Модуль 8\ДЗ Модуль 8\ДЗ Модуль 8\Main.cpp">
-      <Filter>Исходные файлы</Filter>
-    </ClCompile>
-    <ClCompile Include="Source.cpp">
+    <ClCompile Include="Main.cpp">
       <Filter>Исходные файлы</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="..\..\Модуль 8\ДЗ Модуль 8\ДЗ Модуль 8\Array.h">
+    <ClInclude Include="Array.h">
       <Filter>Файлы заголовков</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\Модуль 8\ДЗ Модуль 8\ДЗ Модуль 8\IncorrectLength.h">
+    <ClInclude Include="IncorrectLength.h">
       <Filter>Файлы заголовков</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\Модуль 8\ДЗ Модуль 8\ДЗ Модуль 8\NoPosition.h">
+    <ClInclude Include="NoPosition.h">
       <Filter>Файлы заголовков</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\Модуль 8\ДЗ Модуль 8\ДЗ Модуль 8\OutOfRange.h">
+    <ClInclude Include="OutOfRange.h">
       <Filter>Файлы заголовков</Filter>
     </ClInclude>
   </ItemGroup>
