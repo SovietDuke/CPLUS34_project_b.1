@@ -129,6 +129,7 @@
   <ItemGroup>
     <ClCompile Include="..\..\Модуль 8\ДЗ Модуль 8\ДЗ Модуль 8\Array.cpp" />
     <ClCompile Include="..\..\Модуль 8\ДЗ Модуль 8\ДЗ Модуль 8\Main.cpp" />
+    <ClCompile Include="Source.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\..\Модуль 8\ДЗ Модуль 8\ДЗ Модуль 8\Array.h" />
