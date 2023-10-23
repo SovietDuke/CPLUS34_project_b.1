@@ -30,7 +30,7 @@ public:
 		delete[] m_data;
 	}
 
-	template <typename T> void erase()
+	void erase()
 	{
 		delete[] m_data;
 		m_data = nullptr;
@@ -75,7 +75,7 @@ public:
 		m_length = newLength;
 	}
 
-	template <typename T> int& operator [](int i)
+	template <typename T> T& operator [](int i)
 	{
 		if (i >= 0 and i <= m_length)
 			return m_data[i];
