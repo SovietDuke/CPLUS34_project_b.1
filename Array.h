@@ -25,7 +25,7 @@ public:
 			m_data[i] = Array.m_data[i];
 	}
 
-	template <typename T> ~Array()
+	~Array()
 	{
 		delete[] m_data;
 	}
