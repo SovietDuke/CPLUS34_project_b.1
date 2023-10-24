@@ -127,13 +127,17 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="Main.cpp" />
-  </ItemGroup>
-  <ItemGroup>
     <ClInclude Include="Array.h" />
     <ClInclude Include="IncorrectLength.h" />
     <ClInclude Include="NoPosition.h" />
     <ClInclude Include="OutOfRange.h" />
+    <ClInclude Include="User.h" />
+    <ClInclude Include="UserArray.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="Main.cpp" />
+    <ClCompile Include="User.cpp" />
+    <ClCompile Include="UserArray.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

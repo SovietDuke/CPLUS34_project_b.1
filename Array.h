@@ -1,11 +1,13 @@
 #pragma once
+#include <string>
+#include <iostream>
 
 template <typename T> class Array
 {
 public:
 	Array() = default;
 
-	template <typename T> Array(int length) : m_length(length)
+	Array(int length) : m_length(length)
 	{
 		if (length <= 0)
 		{
@@ -129,7 +131,7 @@ public:
 		{
 			if (m_length == 1)
 			{
-				Array::erase();
+				erase();
 				return;
 			}
 			T* data{ new T[m_length + 1] };
@@ -160,7 +162,7 @@ public:
 		insertBefore(value, m_length);
 	}
 
-private:
+protected:
 	int m_length{};
 	T* m_data{};
 };
