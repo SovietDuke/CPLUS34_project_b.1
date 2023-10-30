@@ -17,6 +17,10 @@ User::User(std::string username, std::string email, std::string password)
 	_password = password;
 }
 User::~User() {}
+void User::setID(int newID)
+{
+	_id = newID;
+}
 void User::setUserName(std::string newName)
 {
 	_username = newName;

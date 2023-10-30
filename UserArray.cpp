@@ -1,24 +1,26 @@
 #include "UserArray.h"
 
-template<> UserArray<User>::UserArray(){}
-template<> UserArray<User>::~UserArray(){}
-template<> void UserArray<User>::print() const
+template<> UserArray<User*>::UserArray()
+{
+
+};
+template<> UserArray<User*>::~UserArray() {};
+template<> void UserArray<User*>::print()
 {
 	if (m_data)
 	{
 		for (int i = 0; i < m_length; i++)
 		{
-			m_data[i].printUser();
+			m_data[i]->printUser();
 		}
 	}
 }
-template<> void UserArray<User>::insertAtEnd(User User)
+void UserArray<User*>::add(User* user)
 {
-	this->insertAtEnd(User);
-	User._id = ++_lastID;
-	_userID.insertAtEnd(_lastID);
+	m_data[m_length] = user;
+	user->setID(UserArray::_lastID);
 }
-template<> unsigned long UserArray<User>::getID(std::string username) const
+template<> unsigned long UserArray<User*>::getID(std::string username)
 {
 	if (m_data)
 	{

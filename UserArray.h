@@ -2,15 +2,15 @@
 #include "Array.h"
 #include "User.h"
 
-template <typename T = User> class UserArray : public Array<T>
+template <typename T = User*> class UserArray : public Array<User*>
 {
-public:
+public
 	UserArray();
 	~UserArray();
-	void print() const;
-	void insertAtEnd(User User) override;
-	unsigned long getID(std::string username) const;
-private:
-	Array<unsigned long> _userID{};
+	void print();
+	void add(User* user);
+	User::User* getUserByID(unsigned long ID);
+	User::User* getUserByName (std::string Name)
+protected:
 	unsigned long _lastID = 0;
 };
