@@ -18,17 +18,16 @@ template<> void UserArray<User*>::print()
 void UserArray<User*>::add(User* user)
 {
 	m_data[m_length] = user;
-	user->setID(UserArray::_lastID);
+	user->setID(UserArray<User*>::_lastID);
 }
-template<> unsigned long UserArray<User*>::getID(std::string username)
+User* UserArray<User*>::getUserByID(unsigned long ID)
 {
-	if (m_data)
+	for (int i = 0; i < m_length; i++)
 	{
-		for (int i = 0; i < m_length; i++)
-		{
-			if (m_data[i]._username == username)
-				return m_data[i]._id;
-		}
+		if (m_data[i]->_id == ID)
 	}
-	return 0;
+}
+User* UserArray<User*>::getUserByName(std::string Name)
+{
+
 }
