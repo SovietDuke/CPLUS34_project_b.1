@@ -24,7 +24,8 @@ User* UserArray<User*>::getUserByID(unsigned long ID)
 {
 	for (int i = 0; i < m_length; i++)
 	{
-		if (m_data[i]->_id == ID)
+		if (m_data[i]->_id == ID) return m_data[i];
+		return 0;
 	}
 }
 User* UserArray<User*>::getUserByName(std::string Name)
