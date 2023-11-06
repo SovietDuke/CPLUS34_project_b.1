@@ -1,18 +1,17 @@
 #include <iostream>
 #include <string>
 #include "UserArray.h"
+#include "Chat.h"
 using namespace std;
 
 int main()
 {
-	UserArray<User> UserData;
-	User Egor, Sasha;
-	Egor.setUserName("Egor");
-	Egor.setEmail("kozlovegoryur@gmail.com");
-	Sasha.setUserName("Baby");
-	UserData.insertAtEnd(Egor);
-	UserData.insertAtEnd(Sasha);
-	UserData.print();
+	setlocale(LC_ALL, "");
+	Chat ICQ("ICQ");
+	User Egor("Egor", "test@gmail.ru", "123");
+	User Andrew("Andrei", "test1@gmail.ru", "123");
+	ICQ.addUser(&Egor);
+	ICQ.addUser(&Andrew);
 
 	return 0;
 }
