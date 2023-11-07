@@ -33,12 +33,14 @@
     <ClInclude Include="Chat.h">
       <Filter>Файлы заголовков</Filter>
     </ClInclude>
+    <ClInclude Include="ExcLimitEmail.h">
     <ClInclude Include="ExcLimitUsername.h">
       <Filter>Файлы заголовков</Filter>
     </ClInclude>
     <ClInclude Include="ExcLimitPassword.h">
       <Filter>Файлы заголовков</Filter>
     </ClInclude>
+    <ClInclude Include="ExcLimitUsername.h">
     <ClInclude Include="ExcLimitEmail.h">
       <Filter>Файлы заголовков</Filter>
     </ClInclude>
