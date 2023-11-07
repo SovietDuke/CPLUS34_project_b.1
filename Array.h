@@ -19,6 +19,8 @@ public:
 		}
 	}
 
+	int m_length{};
+
 	template <typename T> Array(const Array& Array)
 	{
 		reallocate(Array.getLength());
@@ -163,6 +165,5 @@ public:
 	}
 
 protected:
-	int m_length{};
 	T* m_data{};
 };

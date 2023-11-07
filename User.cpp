@@ -39,6 +39,10 @@ void User::printUser()
 	std::cout << "User name: " << _username << std::endl;
 	std::cout << "User email: " << _email << std::endl;
 }
+void User::showMessage(std::string message)
+{
+	std::cout << message << std::endl;
+}
 unsigned long User::getID() const
 {
 	return _id;

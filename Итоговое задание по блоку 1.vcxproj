@@ -127,7 +127,6 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClInclude Include="Array.h" />
     <ClInclude Include="Chat.h" />
     <ClInclude Include="ExcLimitEmail.h" />
     <ClInclude Include="ExcLimitPassword.h" />

@@ -15,9 +15,6 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Array.h">
-      <Filter>Файлы заголовков</Filter>
-    </ClInclude>
     <ClInclude Include="IncorrectLength.h">
       <Filter>Файлы заголовков</Filter>
     </ClInclude>
@@ -37,12 +34,14 @@
       <Filter>Файлы заголовков</Filter>
     </ClInclude>
     <ClInclude Include="ExcLimitEmail.h">
+    <ClInclude Include="ExcLimitUsername.h">
       <Filter>Файлы заголовков</Filter>
     </ClInclude>
     <ClInclude Include="ExcLimitPassword.h">
       <Filter>Файлы заголовков</Filter>
     </ClInclude>
     <ClInclude Include="ExcLimitUsername.h">
+    <ClInclude Include="ExcLimitEmail.h">
       <Filter>Файлы заголовков</Filter>
     </ClInclude>
   </ItemGroup>
