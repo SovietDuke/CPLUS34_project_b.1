@@ -1,136 +1,89 @@
 #pragma once
+#include <vector>
+#include <algorithm>
 #include "User.h"
 #include "IncorrectLength.h"
 #include "Noposition.h"
 
-template <typename T> class UserArray
+template <typename T>
+class UserArray
 {
 public:
-	//дефолтный конструктор
-	UserArray() = default;
+    // Дефолтный конструктор
+    UserArray() = default;
 
-	//коструктор по количеству пользователей в массиве
-	UserArray(int length) : _usersCount(length)
-	{
-		if (length <= 0)
-		{
-			throw IncorrectLength();
-		}
-		else
-		{
-			_users = new T[length]{};
-		}
-	};
+    // Конструктор с заданным количеством пользователей
+    explicit UserArray(int length)
+    {
+        if (length <= 0)
+        {
+            throw IncorrectLength();
+        }
+        _users.resize(length);
+    }
 
-	//деструктор
-	~UserArray()
-	{
-		delete[] _users;
-	}
+    // Оператор доступа к элементу
+    T& operator[](int i)
+    {
+        if (i >= 0 && i < static_cast<int>(_users.size()))
+        {
+            return _users[i];
+        }
+        else
+        {
+            throw NoPosition();
+        }
+    }
 
-	//конструктор копирования
-	UserArray(const UserArray& UserArray)
-	{
-		reallocate(UserArray.getLength());
+    // Функция вывода информации о всех пользователях
+    void print() const
+    {
+        for (const auto& user : _users)
+        {
+            user.printUser();
+        }
+    }
 
-		for (int i = 0; i < _usersCount; ++i)
-			_users[i] = UserArray._users[i];
-	}
+    // Функция добавления пользователя
+    void add(const T& user)
+    {
+        _users.push_back(user);
+    }
 
-	//функция изменения количества пользователей в массиве
-	void reallocate(int newLength)
-	{
-		erase();
+    // Функция удаления пользователя
+    void remove(const T& user)
+    {
+        auto it = std::remove(_users.begin(), _users.end(), user);
+        if (it != _users.end())
+        {
+            _users.erase(it, _users.end());
+        }
+    }
 
-		if (newLength <= 0)
-			return;
+    // Функция получения пользователя по ID
+    User* getUserByID(unsigned long ID)
+    {
+        auto it = std::find_if(_users.begin(), _users.end(), [ID](const T& user) {
+            return user->_id == ID;
+            });
+        return it != _users.end() ? *it : nullptr;
+    }
 
-		_users = new T[newLength];
-		_usersCount = newLength;
-	}
+    // Функция получения пользователя по имени
+    User* getUserByName(const std::string& Name)
+    {
+        auto it = std::find_if(_users.begin(), _users.end(), [&Name](const T& user) {
+            return user->_username == Name;
+            });
+        return it != _users.end() ? *it : nullptr;
+    }
 
-	//функция очистки массива пользователей
-	void erase()
-	{
-		delete[] _users;
-		_users = nullptr;
-		_usersCount = 0;
-	}
+    // Геттер количества пользователей
+    int getLength() const
+    {
+        return static_cast<int>(_users.size());
+    }
 
-	//оператор присвоения
-	T& operator[](int i)
-	{
-		if (i >= 0 and i <= _usersCount)
-			return _users[i];
-		else
-			throw NoPosition();
-	}
-
-	//функция отражения информации по всем пользователям в массве
-	void print()
-	{
-		if (_users)
-		{
-			for (int i = 0; i < _usersCount; i++)
-			{
-				_users[i]->printUser();
-			}
-		}
-	}
-
-	//функция добавления пользователя в массив
-	void add(T user)
-	{
-		T* newUsers = new T[_usersCount + 1];
-		for (int i = 0; i < _usersCount; i++)
-		{
-			newUsers[i] = _users[i];
-		}
-		newUsers[_usersCount] = user;
-		delete[] _users;
-		_users = newUsers;
-		++_usersCount;
-	}
-
-	//функция удаления пользователя из массива
-	void remove(T user)
-	{
-		for (int i = 0; i < UserArray<T>::_usersCount; i++)
-		{
-			if (UserArray<T>::_users[i] == user)
-			{
-				UserArray<T>::_users[i] = _users[i + 1];
-				UserArray<T>::_usersCount--;
-			}
-		}
-	}
-
-	//функция получения класса пользователя из массива по его id
-	User* getUserByID(unsigned long ID)
-	{
-		for (int i = 0; i < _usersCount; i++)
-		{
-			if (_users[i]->_id == ID) return _users[i];
-			return 0;
-		}
-	}
-
-	//функция получения класса пользователя из массива по его имени
-	User* getUserByName(std::string Name)
-	{
-		for (int i = 0; i < _usersCount; i++)
-		{
-			if (_users[i]->_username == Name) return _users[i];
-		}
-		return 0;
-	}
-
-	// геттер количества пользователей в массиве
-	int getLength()
-	{
-		return _usersCount;
-	}
 private:
-	T* _users; // ссылка на массив
-	int _usersCount; // счётчик пользователей в массиве
+    std::vector<T> _users; // Вектор пользователей
 };
